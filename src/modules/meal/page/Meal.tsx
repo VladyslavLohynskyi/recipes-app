@@ -63,13 +63,21 @@ const Meal = () => {
                   {currentMeal?.strTags && <p>Tags: {currentMeal?.strTags}</p>}
                   <p>
                      Youtube:{' '}
-                     <a href={currentMeal?.strYoutube} target='_blank'>
+                     <a
+                        href={currentMeal?.strYoutube}
+                        rel='noreferrer'
+                        target='_blank'
+                     >
                         {currentMeal?.strYoutube}
                      </a>
                   </p>
                   <p>
                      Source:
-                     <a href={currentMeal?.strSource} target='_blank'>
+                     <a
+                        href={currentMeal?.strSource}
+                        rel='noreferrer'
+                        target='_blank'
+                     >
                         currentMeal?.strSource
                      </a>
                   </p>

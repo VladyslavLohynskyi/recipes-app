@@ -6,5 +6,5 @@ export const getAllRecipes =
    (name: string) => async (dispatch: AppDispatch) => {
       dispatch(recipesSlice.actions.getMealsStart());
       const { meals } = await RecipesReq.getRecipes(name);
-      dispatch(recipesSlice.actions.getMeals(meals));
+      dispatch(recipesSlice.actions.getMeals(meals ? meals : []));
    };
