@@ -8,3 +8,7 @@ export const getAllRecipes =
       const { meals } = await RecipesReq.getRecipes(name);
       dispatch(recipesSlice.actions.getMeals(meals ? meals : []));
    };
+
+export const changePage = (page: number) => async (dispatch: AppDispatch) => {
+   dispatch(recipesSlice.actions.changePage(page));
+};
