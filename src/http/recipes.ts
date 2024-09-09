@@ -8,6 +8,12 @@ class RecipesReq {
       });
       return data;
    };
+   getMealById = async (id: string) => {
+      const { data } = await $host.get<{ meals: IMeal[] }>('lookup.php/', {
+         params: { i: id },
+      });
+      return data.meals[0];
+   };
 }
 
 export default new RecipesReq();
