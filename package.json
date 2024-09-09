@@ -1,7 +1,8 @@
 {
    "name": "recipes-app",
    "version": "0.1.0",
-   "private": true,
+   "private": false,
+   "homepage": "https://vladyslavlohynskyi.github.io/recipes-app/",
    "dependencies": {
       "@reduxjs/toolkit": "^2.2.7",
       "@testing-library/jest-dom": "^5.17.0",
@@ -26,6 +27,8 @@
       "start": "react-scripts start",
       "build": "react-scripts build",
       "test": "react-scripts test",
+      "predeploy": "npm run build",
+      "deploy": "gh-pages -d build",
       "eject": "react-scripts eject"
    },
    "eslintConfig": {
@@ -50,6 +53,7 @@
       "@types/lodash.debounce": "^4.0.9",
       "@types/react-redux": "^7.1.33",
       "@types/react-router-dom": "^5.3.3",
+      "gh-pages": "^6.1.1",
       "prettier": "^3.3.3"
    }
 }
