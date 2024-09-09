@@ -8,6 +8,11 @@ body {
    -webkit-font-smoothing: antialiased;
    -moz-osx-font-smoothing: grayscale;
 }
+:root {
+   --main-text-color: #000000;
+   --secondary-text-color: #333;
+   --border-color: #d9d7d7;
+}
 
 code {
    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',

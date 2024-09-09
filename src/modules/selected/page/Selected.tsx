@@ -1,7 +1,7 @@
 import './Selected.scss';
 
 const Selected = () => {
-   return <div className='selected'>Selected</div>;
+   return <div className='selected  max-width'>Selected</div>;
 };
 
 export default Selected;
