@@ -1,14 +1,28 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import './App.scss';
-import { IMeal } from './utils/interfaces';
-import RecipesReq from './http/recipes';
+import { useAppDispatch, useAppSelector } from './hooks/redux';
+import { getAllRecipes } from './store/reducers/recipes/recipesActionCreators';
 
 function App() {
-   const [recipes, setRecipes] = useState<IMeal[]>([]);
+   const dispatch = useAppDispatch();
+   const { meals, count, isLoading } = useAppSelector(
+      (state) => state.mealsReducer,
+   );
    useEffect(() => {
-      RecipesReq.getRecipes('').then((recipes) => setRecipes(recipes.meals));
+      dispatch(getAllRecipes(''));
    }, []);
-   return <div className='app'>{JSON.stringify(recipes)}</div>;
+   return (
+      <div className='app'>
+         {isLoading ? (
+            <p>...Loading</p>
+         ) : (
+            <p>
+               {' '}
+               {count} {JSON.stringify(meals)}
+            </p>
+         )}
+      </div>
+   );
 }
 
 export default App;
