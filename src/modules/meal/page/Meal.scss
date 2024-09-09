@@ -1,0 +1,19 @@
+.meal {
+   width: 100%;
+   height: 100%;
+   padding: 20px;
+   &__container {
+      display: grid;
+      grid-template-columns: 0.5fr 1fr;
+      column-gap: 15px;
+      row-gap: 15px;
+      grid-template-rows: auto;
+   }
+   &__img-container {
+      width: 100%;
+      height: fit-content;
+      & img {
+         width: 100%;
+      }
+   }
+}
