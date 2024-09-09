@@ -5,10 +5,13 @@ import { getAllRecipes } from '../../../store/reducers/recipes/recipesActionCrea
 import { RecipeCard } from '../components/RecipeCard';
 import { Input } from '../../ui/Input';
 import debounce from 'lodash.debounce';
+import { Pagination } from '../components/Pagination';
 
 const Recipes = () => {
    const dispatch = useAppDispatch();
-   const { meals, isLoading } = useAppSelector((state) => state.mealsReducer);
+   const { isLoading, filteredMeals } = useAppSelector(
+      (state) => state.mealsReducer,
+   );
    const [name, setName] = useState<string>('');
    const handleChangeName = (e: React.ChangeEvent<HTMLInputElement>) => {
       setName(e.target.value);
@@ -40,11 +43,14 @@ const Recipes = () => {
          {isLoading ? (
             <p>...Loading</p>
          ) : (
-            <div className='recipes__list'>
-               {meals.map((meal) => (
-                  <RecipeCard key={meal.idMeal} meal={meal} />
-               ))}
-            </div>
+            <>
+               <div className='recipes__list'>
+                  {filteredMeals.map((meal) => (
+                     <RecipeCard key={meal.idMeal} meal={meal} />
+                  ))}
+               </div>
+               <Pagination />
+            </>
          )}
       </div>
    );
