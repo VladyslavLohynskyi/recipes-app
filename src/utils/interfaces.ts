@@ -53,3 +53,8 @@ export interface IMeal {
    strCreativeCommonsConfirmed: string | null;
    dateModified: string | null;
 }
+
+export interface IRoutes {
+   path: string;
+   Component: React.FC;
+}
